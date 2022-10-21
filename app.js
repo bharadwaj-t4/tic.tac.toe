@@ -36,7 +36,6 @@ boxes.forEach(item =>{
                        }
                     }    
                 })
-                // console.log("checking");
             });
         }
         else if(count%2===1)
@@ -53,38 +52,30 @@ boxes.forEach(item =>{
                     if(x.includes(item))
                     {
                        check++;
-                       if(count<9 && check>=3)
+                       if( check>=3)
                        {
                         result.textContent="Player 1 WON";
                         setTimeout(function(){
                             window.location.reload();
                          }, 3000);
                        }
-                       else if(count==9)
-                       {
-                            // console.log(check);
-                            if(check==3)
-                            {
-                                console.log("win")
-                                result.textContent="win";
-                                return null
-
-                                
-                            }
-                            else
-                            {
-                                console.log("tie");
-                                result.textContent="tie";
-                            }
-                       }
-                       
                     }
-                     
                 })
-                // console.log("checking");
             });
-            console.log(count);
+            
         }
+        if(count==9)
+        {
+            setTimeout(function(){
+                count++
+                console.log(count);
+                result.textContent="TIE";
+                setTimeout(function(){
+                    window.location.reload();
+                }, 2000);
+             }, 3001);
+        }
+        
     },{once : true})
     
 });
