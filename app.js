@@ -5,7 +5,10 @@ const result=document.querySelector('.result h3');
 count=0;
 var x=[];
 var o=[];
-var win=[['one','two','three'],['one','four','seven'],['one','five','nine'],['two','five','eight'],['three','six','nine'],['three','five','seven'],['four','five','six'],['seven','eight','nine']];
+var win=[['one','two','three'],['one','four','seven'],
+        ['one','five','nine'],['two','five','eight'],
+        ['three','six','nine'],['three','five','seven'],
+        ['four','five','six'],['seven','eight','nine']];
 
 boxes.forEach(item =>{
     item.addEventListener('click',()=>{
@@ -36,7 +39,8 @@ boxes.forEach(item =>{
                 // console.log("checking");
             });
         }
-        else{
+        else if(count%2===1)
+        {
             item.children[0].classList.remove("xx");
             item.children[1].remove();
             x.push(item.classList[1]);
@@ -49,30 +53,47 @@ boxes.forEach(item =>{
                     if(x.includes(item))
                     {
                        check++;
-
-                       if(check>=3)
+                       if(count<9 && check>=3)
                        {
                         result.textContent="Player 1 WON";
                         setTimeout(function(){
                             window.location.reload();
                          }, 3000);
-                       } 
-                    }    
+                       }
+                       else if(count==9)
+                       {
+                            // console.log(check);
+                            if(check==3)
+                            {
+                                console.log("win")
+                                result.textContent="win";
+                                return null
+
+                                
+                            }
+                            else
+                            {
+                                console.log("tie");
+                                result.textContent="tie";
+                            }
+                       }
+                       
+                    }
+                     
                 })
                 // console.log("checking");
             });
-        }
-        
-        if(count===9)
-        {
-            result.textContent="TIE";
-            setTimeout(function(){
-                window.location.reload();
-             }, 2000);
+            console.log(count);
         }
     },{once : true})
     
 });
+
+
+
+
+
+
 
 
 
