@@ -26,7 +26,10 @@ boxes.forEach(item =>{
                        check++;
                        if(check>=3)
                        {
-                        result.textContent="Player 2 WON"
+                        result.textContent="Player 2 WON";
+                        setTimeout(function(){
+                            window.location.reload();
+                         }, 2000);
                        }
                     }    
                 })
@@ -49,7 +52,10 @@ boxes.forEach(item =>{
 
                        if(check>=3)
                        {
-                        result.textContent="Player 1 WON"
+                        result.textContent="Player 1 WON";
+                        setTimeout(function(){
+                            window.location.reload();
+                         }, 3000);
                        } 
                     }    
                 })
@@ -60,6 +66,9 @@ boxes.forEach(item =>{
         if(count===9)
         {
             result.textContent="TIE";
+            setTimeout(function(){
+                window.location.reload();
+             }, 2000);
         }
     },{once : true})
     
