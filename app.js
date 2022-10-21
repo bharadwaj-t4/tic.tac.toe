@@ -1,5 +1,7 @@
 const boxes=document.querySelectorAll(".box");
 
+const result=document.querySelector('.result h3');
+
 count=0;
 var x=[];
 var o=[];
@@ -13,30 +15,56 @@ boxes.forEach(item =>{
             item.children[1].classList.remove("oo");
             item.children[0].remove();
             o.push(item.classList[1]);
+            win.forEach(item=>{
+    
+                var check=0;
+            
+                item.forEach(item=>{
+            
+                    if(o.includes(item))
+                    {
+                       check++;
+                       if(check>=3)
+                       {
+                        result.textContent="Player 2 WON"
+                       }
+                    }    
+                })
+                // console.log("checking");
+            });
         }
         else{
             item.children[0].classList.remove("xx");
             item.children[1].remove();
             x.push(item.classList[1]);
+            win.forEach(item=>{
+    
+                var check=0;
+            
+                item.forEach(item=>{
+            
+                    if(x.includes(item))
+                    {
+                       check++;
+
+                       if(check>=3)
+                       {
+                        result.textContent="Player 1 WON"
+                       } 
+                    }    
+                })
+                // console.log("checking");
+            });
         }
-        // for(var i=0;i<win.length;i++)
-        // {
-        //     console.log(win[i]);
-        // };
         
+        if(count===9)
+        {
+            result.textContent="TIE";
+        }
     },{once : true})
+    
 });
 
-// win.forEach(item=>{
-//     item.forEach(item=>{
-//         console.log(item);
-//     });
-// });
-
-for(var i=0;i<win.length;i++)
-{
-   
-};
 
 
 
